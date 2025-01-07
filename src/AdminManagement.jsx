@@ -21,7 +21,7 @@ const AdminManagement = () => {
 
         // Realizar la solicitud incluyendo el token en los encabezados
         const response = await axios.get(
-          'https://codiser.vercel.app/api/v1/admin/search-alls',
+          'https://proyecto-codisert-back-end-sequialize.onrender.com/api/v1/admin/search-alls',
           {
             headers: {
               Authorization: `Bearer ${token}`, // Añadir el token al encabezado Authorization

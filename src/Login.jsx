@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://codiser.vercel.app/auth/login', {
+      const response = await axios.post('https://proyecto-codisert-back-end-sequialize.onrender.com/auth/login', {
         NumeroDocumento: numeroDocumento,
         Password: password,
       }, {
