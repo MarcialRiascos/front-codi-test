@@ -35,15 +35,14 @@ export const getDataBeneficiary = async (url: string) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            credentials: 'include',  // Asegúrate de incluir las credenciales (cookies, autenticación, etc.)
         });
 
         if (!response.ok) {
             throw new Error('Error en la petición GET');
         }
 
-        const data = await response.json();
-        return data;
+        const data = await response.json()
+        return data
     } catch (error) {
         console.error('Error al hacer GET:', error);
         throw error;
