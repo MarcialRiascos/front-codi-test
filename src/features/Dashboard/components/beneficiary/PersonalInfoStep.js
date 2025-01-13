@@ -1,0 +1,21 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect } from "react";
+import { useFormContext } from "react-hook-form";
+import { Input } from "../../../../components/ui/input";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage, } from "../../../../components/ui/form";
+import SelectComponent from "../SelectComponent";
+import { useIdentificationDocumentStore } from "../../../../store/identificationDocumentStore";
+export function PersonalInfoStep() {
+    const form = useFormContext();
+    const { documents, getIdentificationDocuments } = useIdentificationDocumentStore();
+    useEffect(() => {
+        getIdentificationDocuments();
+    }, [getIdentificationDocuments]);
+    return (_jsxs("div", { className: "space-y-4", children: [_jsxs("div", { className: "grid gap-4 md:grid-cols-2", children: [_jsx(FormField, { control: form.control, name: "Nombre", render: ({ field }) => (_jsxs(FormItem, { children: [_jsx(FormLabel, { children: "Nombre *" }), _jsx(FormControl, { children: _jsx(Input, { ...field, type: "text", placeholder: "Joe" }) }), _jsx(FormMessage, {})] })) }), _jsx(FormField, { control: form.control, name: "Apellido", render: ({ field }) => (_jsxs(FormItem, { children: [_jsx(FormLabel, { children: "Apellidos *" }), _jsx(FormControl, { children: _jsx(Input, { ...field, type: "text", placeholder: "Doe" }) }), _jsx(FormMessage, {})] })) })] }), _jsxs("div", { className: 'grid grid-cols-1 sm:grid-cols-2 gap-4', children: [_jsx(SelectComponent, { form: form, name: "TipoDocumento_idTipoDocumento", formLabel: "Tipo de identificaci\u00F3n *", options: documents.map((doc) => ({ value: `${doc.idTipoDocumento}`, label: `${doc.TipoDocumento}` })) }), _jsx(FormField, { control: form.control, name: "NumeroDocumento", render: ({ field }) => (_jsxs(FormItem, { children: [_jsx(FormLabel, { children: "N\u00FAmero de identificaci\u00F3n *" }), _jsx(FormControl, { children: _jsx(Input, { ...field, type: "text", placeholder: "" }) }), _jsx(FormMessage, {})] })) })] }), _jsxs("div", { className: 'grid grid-cols-1 sm:grid-cols-2 gap-4', children: [_jsx(FormField, { control: form.control, name: "FechaNacimiento", render: ({ field }) => (_jsxs(FormItem, { children: [_jsx(FormLabel, { children: "Fecha de nacimiento *" }), _jsx(Input, { ...field, type: "date", value: field.value, onChange: (value) => {
+                                        field.onChange(value);
+                                    }, placeholder: "", className: 'w-full p-2 border rounded-md bg-input text-gray-700 border-gray-500 dark:border-gray-800 focus:outline-none focus:ring-2 focus:border-blue-500 dark:bg-input dark:text-gray-200' }), _jsx(FormMessage, {})] })) }), _jsx(SelectComponent, { form: form, name: "Sexo_idSexo", formLabel: "G\u00E9nero *", options: [
+                            { value: "1", label: "Masculino" },
+                            { value: "2", label: "Femenino" },
+                            { value: "3", label: "Otro" },
+                        ] })] }), _jsx(FormField, { control: form.control, name: "Correo", render: ({ field }) => (_jsxs(FormItem, { children: [_jsx(FormLabel, { children: "Correo electr\u00F3nico *" }), _jsx(FormControl, { children: _jsx(Input, { ...field, type: "email", placeholder: "example@example.com" }) }), _jsx(FormMessage, {})] })) }), _jsxs("div", { className: "flex flex-col gap-4", children: [_jsx(FormField, { control: form.control, name: "Telefono", render: ({ field }) => (_jsxs(FormItem, { children: [_jsx(FormLabel, { children: "Tel\u00E9fonos de contacto" }), _jsx(FormControl, { children: _jsx(Input, { ...field, type: "tel", placeholder: "Tel\u00E9fono 1" }) }), _jsx(FormMessage, {})] })) }), _jsx(FormField, { control: form.control, name: "Celular", render: ({ field }) => (_jsxs(FormItem, { children: [_jsx(FormControl, { children: _jsx(Input, { ...field, type: "tel", placeholder: "Tel\u00E9fono 2" }) }), _jsx(FormMessage, {})] })) }), _jsx(FormField, { control: form.control, name: "TelefonoTres", render: ({ field }) => (_jsxs(FormItem, { children: [_jsx(FormControl, { children: _jsx(Input, { ...field, type: "tel", placeholder: "Tel\u00E9fono 3" }) }), _jsx(FormMessage, {})] })) })] })] }));
+}
